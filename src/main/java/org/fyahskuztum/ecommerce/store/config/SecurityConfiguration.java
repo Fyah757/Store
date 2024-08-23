@@ -13,24 +13,24 @@ public class SecurityConfiguration {
     @Bean
     public InMemoryUserDetailsManager userDetailsManager() {
 
-        UserDetails wilbur = User.builder()
-                .username("wilbur")
+        UserDetails stacie = User.builder()
+                .username("stacie")
                 .password("{noop}123")
                 .roles("SUPERUSER")
                 .build();
 
-        UserDetails mary = User.builder()
-                .username("mary")
+        UserDetails derek = User.builder()
+                .username("derek")
                 .password("{noop}test123")
                 .roles("EMPLOYEE", "MANAGER")
                 .build();
 
-        UserDetails susan = User.builder()
-                .username("susan")
+        UserDetails ponds = User.builder()
+                .username("ponds")
                 .password("{noop}test123")
                 .roles("EMPLOYEE", "MANAGER", "ADMIN")
                 .build();
 
-        return new InMemoryUserDetailsManager(wilbur, mary, susan);
+        return new InMemoryUserDetailsManager(stacie, derek, ponds);
     }
 }
