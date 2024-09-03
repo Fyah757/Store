@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .search-bar, .actions {
+            margin-bottom: 20px;
+        }
+        .search-bar input[type="text"] {
+            width: 70%;
+            padding: 8px;
+            font-size: 16px;
+        }
+        .actions button, .actions select {
+            padding: 10px 15px;
+            margin-right: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .actions a {
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" id="search" placeholder="Search customers...">
+        <button onclick="searchCustomers()">Search</button>
+    </div>
+
+    <!-- Actions -->
+    <div class="actions">
+        <button onclick="getAllCustomers()">Return All Customers</button>
+        <select id="sortOptions" onchange="sortCustomers()">
+            <option value="">Sort Customers</option>
+            <option value="firstNameAsc">First Name (Ascending)</option>
+            <option value="firstNameDesc">First Name (Descending)</option>
+            <option value="lastNameAsc">Last Name (Ascending)</option>
+            <option value="lastNameDesc">Last Name (Descending)</option>
+        </select>
+        <a href="new_customer.html">Create New Customer</a>
+    </div>
+
+    <!-- Customers List -->
+    <div id="customersList">
+        <!-- Customer list will be dynamically populated here -->
+    </div>
+</div>
+
+<script>
+    function searchCustomers() {
+        // Implement search functionality here
+        const searchTerm = document.getElementById('search').value;
+        console.log('Searching customers with term:', searchTerm);
+        // Fetch and display customers based on searchTerm
+    }
+
+    function getAllCustomers() {
+        // Implement functionality to return all customers here
+        console.log('Returning all customers');
+        // Fetch and display all customers
+    }
+
+    function sortCustomers() {
+        const sortOption = document.getElementById('sortOptions').value;
+        console.log('Sorting customers by:', sortOption);
+        // Implement sorting functionality based on the selected option
+        // Fetch and display customers sorted by the chosen option
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - My Website</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<style>
+    body {
+        background: #34beac;
+        color:  #5a1681;
+        font-family: 'Lucida Handwriting', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        background: #5a1681;
+        color: #34beac;
+        font-family: 'Sofia', sans-serif;
+        padding: 1rem;
+    }
+
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul li {
+        display: inline;
+        margin-right: 10px;
+    }
+
+    nav ul li a {
+        color: #34beac;
+        text-decoration: none;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin: 1rem 0;
+    }
+
+</style>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h1>Welcome to Fyah's Kuztum Creations!</h1>
+    <p>Discover a world of creativity and inspiration. Whether you're a seasoned crafter or just starting out, you'll find everything you need to bring your imagination to life. Explore our unique handmade treasures or dive into our collection of quality crafting supplies and tools. Let's create something beautiful together! </p>
+
+    <section class="grid-container">
+        <article>
+            <h2>Join Our Group on Facebook</h2>
+            <img src="Blankslogo.png" alt="Fyah's Blanks Logo">
+            <p>Join us for tutorials and more!</p>
+        </article>
+        <article>
+            <h2>Follow Us on TikTok</h2>
+            <video width="300" controls>
+                <source src="Download (2).mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </article>
+        <article>
+            <h2>YouTube Channel Coming Soon</h2>
+            <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2Q2N25qaWlycDlueWwweHNqams5NHU1enZ2ampvZnh0amVtMG56MCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/11ASZtb7vdJagM/giphy.gif" alt="Loading">
+        </article>
+    </section>
+
+    <form action="contact.html" method="post">
+        <label for="email">Subscribe to our newsletter:</label>
+        <input type="email" id="email" name="email" required>
+        <button type="submit">Subscribe</button>
+    </form>
+</main>
+
+<footer>
+    <p>&copy; 2024 Fyah's Kuztum Creations, LLC</p>
+</footer>
+</body>
+</html>
