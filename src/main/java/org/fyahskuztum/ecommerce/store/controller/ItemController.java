@@ -21,22 +21,22 @@ public class ItemController {
     @Autowired
     private ItemService itemService;
 
-    @GetMapping("/inventory")
+    @GetMapping("/items")
     public String displayInventoryPage(Model model){
         System.out.println("===========>IN displayInventoryPage() ");
         List<Item> allItemList = itemService.getAllItems();
         model.addAttribute("itemList", allItemList);
-        return "inventory";
+        return "items";
     }
 
-    @GetMapping("/inventory/create")
+    @GetMapping("/items/create")
     public String createItemForm(Model model) {
         System.out.println("===========>IN createItemForm() ");
         model.addAttribute("item", new Item());
         return "newItemForm";
     }
 
-    @PostMapping("/inventory")
+    @PostMapping("/items")
     public String addNewItem(@ModelAttribute("item") @Valid Item item, BindingResult result) {
         System.out.println("===========>IN addNewItem() ");
 
@@ -51,17 +51,17 @@ public class ItemController {
         }
 
         itemService.addNewItem(item);
-        return "redirect:/inventory";
+        return "redirect:/items";
     }
 
-    @GetMapping("/inventory/edit/{itemId}")
+    @GetMapping("/items/edit/{itemId}")
     public String updateItemForm(Model model, @PathVariable Long itemId) {
         System.out.println("===========>IN updateItemForm() ");
         model.addAttribute("item", itemService.getItemById(itemId).get());
         return "editItemForm";
     }
 
-    @PostMapping("/inventory/edit")
+    @PostMapping("/items/edit")
     public String updateItem(@ModelAttribute("item") @Valid Item updatedItem, BindingResult result) {
         System.out.println("===========>IN updateItem() ");
 
@@ -81,14 +81,14 @@ public class ItemController {
         }
 
         itemService.updateItem(updatedItem);
-        return "redirect:/inventory";
+        return "redirect:/items";
     }
 
-    @GetMapping("/inventory/delete/{itemId}")
+    @GetMapping("/items/delete/{itemId}")
     public String deleteItem(@PathVariable Long itemId) {
         System.out.println("===========>IN deleteItem() ");
         itemService.deleteItemById(itemId);
-        return "redirect:/inventory";
+        return "redirect:/items";
     }
 
 }

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Customer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+        }
+        input[type="text"], input[type="email"], input[type="tel"] {
+            padding: 8px;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 5px;
+        }
+        input[type="submit"] {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Create New Customer</h2>
+
+    <form id="newCustomerForm" onsubmit="return validateForm(event)">
+        <!-- First Name -->
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+
+        <!-- Last Name -->
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
+
+        <!-- Email -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+        <div class="error" id="emailError"></div>
+
+        <!-- Street Address -->
+        <label for="streetAddress">Street Address:</label>
+        <input type="text" id="streetAddress" name="streetAddress" required>
+
+        <!-- City -->
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required>
+
+        <!-- State -->
+        <label for="state">State (2 letters):</label>
+        <input type="text" id="state" name="state" required pattern="[A-Za-z]{2}">
+        <div class="error" id="stateError"></div>
+
+        <!-- Zip Code -->
+        <label for="zipcode">Zip Code (5 digits):</label>
+        <input type="text" id="zipcode" name="zipcode" required pattern="\d{5}">
+        <div class="error" id="zipcodeError"></div>
+
+        <!-- Phone Number -->
+        <label for="phoneNumber">Phone Number (10 digits):</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" required pattern="\d{10}">
+        <div class="error" id="phoneError"></div>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Create Customer">
+    </form>
+</div>
+
+<script>
+    function validateForm(event) {
+        // Basic validation logic here if needed
+        const email = document.getElementById('email');
+        const state = document.getElementById('state');
+        const zipcode = document.getElementById('zipcode');
+        const phoneNumber = document.getElementById('phoneNumber');
+
+        // Email validation
+        const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+        if (!emailRegex.test(email.value)) {
+            document.getElementById('emailError').textContent = 'Please enter a valid email.';
+            event.preventDefault();
+            return false;
+        } else {
+            document.getElementById('emailError').textContent = '';
+        }
+
+        // State validation
+        const stateRegex = /^[A-Za-z]{2}$/;
+        if (!stateRegex.test(state.value)) {
+            document.getElementById('stateError').textContent = 'State must be exactly 2 letters.';
+            event.preventDefault();
+            return false;
+        } else {
+            document.getElementById('stateError').textContent = '';
+        }
+
+        // Zipcode validation
+        const zipRegex = /^\d{5}$/;
+        if (!zipRegex.test(zipcode.value)) {
+            document.getElementById('zipcodeError').textContent = 'Zip code must be exactly 5 digits.';
+            event.preventDefault();
+            return false;
+        } else {
+            document.getElementById('zipcodeError').textContent = '';
+        }
+
+        // Phone number validation
+        const phoneRegex = /^\d{10}$/;
+        if (!phoneRegex.test(phoneNumber.value)) {
+            document.getElementById('phoneError').textContent = 'Phone number must be exactly 10 digits.';
+            event.preventDefault();
+            return false;
+        } else {
+            document.getElementById('phoneError').textContent = '';
+        }
+
+        return true;
+    }
+</script>
+
+</body>
+</html>

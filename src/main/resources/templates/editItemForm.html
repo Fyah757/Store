@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Item</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Edit Item</h2>
+    <form action="/edit-item" method="POST">
+        <!-- Item ID (Hidden Field) -->
+        <input type="hidden" name="itemId" value="<!-- Existing item ID here -->">
+
+        <!-- Item Name -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="<!-- Existing item name here -->" required>
+
+        <!-- Description -->
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" value="<!-- Existing item description here -->" required>
+
+        <!-- Inventory -->
+        <label for="inventory">Inventory:</label>
+        <input type="number" id="inventory" name="inventory" min="0" value="<!-- Existing inventory count here -->" required>
+
+        <!-- Cost -->
+        <label for="cost">Cost:</label>
+        <input type="number" id="cost" name="cost" step="0.01" value="<!-- Existing item cost here -->" required>
+
+        <!-- Update Item Button -->
+        <input type="submit" value="Update Item">
+    </form>
+</div>
+
+</body>
+</html>
